@@ -16,3 +16,29 @@ pick-> reword Delete Example 1.txt -> :wq -> Delete Example 1.txt -> Drop Exampl
 git rebase -i(특정 commit) : 넣어준 commit의 위쪽으로 모든 commit을 확인
 
 pick -> drop ff5f581 Drop Example 1.txt(pick <commit> = remove commit)
+  
+### 14강. Git Config 환경 설정에 대해 알아보기
+git config --list : 현재 git에 환경 설정이 어떻게 되어있는지
+  
+git config --global user.name "test" : 사용자 이름 설정
+  
+git config --global user.email "test@test.com" : 사용자 이메일 설정
+  
+ls -al : 모든 파일 출력
+  
+cat .gitconfig : gitconfig 파일의 내용 출력
+  
+vim .gitconfig : 파일 수정할 수 있음
+  
+git config --global core.editor vi : 기본 에디터를 vi로 
+  
+mkdir "Git Example" : "Git Example" 디렉토리 생성
+
+ls
+  
+git init
+  
+### 15강. git commit의 날짜 변경 및 커미터(Commiter) 변경하기
+
+
+
