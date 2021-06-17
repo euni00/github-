@@ -12,3 +12,7 @@ Delete Example 1.txt를 수정하는 예제
 git rebase -i HEAD~3(head를 기준으로 최근 3개까지 commit만 확인) : 메세지를 수정 
 
 pick-> reword Delete Example 1.txt -> :wq -> Delete Example 1.txt -> Drop Example 1.txt
+
+git rebase -i(특정 commit) : 넣어준 commit의 위쪽으로 모든 commit을 확인
+
+pick -> drop ff5f581 Drop Example 1.txt(pick <commit> = remove commit)
