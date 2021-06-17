@@ -39,6 +39,57 @@ ls
 git init
   
 ### 15강. git commit의 날짜 변경 및 커미터(Commiter) 변경하기
+1) rebase
+touch "Example 1.txt" : 파일 생성
+  
+pick -> edit Add Exmaple 2.txt : edit = use commit, but stop for amending
+  
+GIT_COMMITER_DATE="Oct 1 10:00:00 2018 +0000" git commit --amend -no-edit --date ""Oct 1 10:00:00 2018 +0000"
 
-
+git rebase --continue : 변경된 내용을 반영
+  
+2) flitering
+  
+git filter-branch -f --env-fliter \
+  
+> 'if [ $GIT_COMMIT = 98f6c1f7556ebd768ccd1190cc8d71fb3922a63f ]
+  
+  then
+  
+    export GIT_AUTOR_DATE="Mon Oct 1 10:00:00 2018 +0000"
+  
+    exprot GIT_COMMITER_DATE="Mon Oct 1 10:00:00 2018 +0000"
+  
+  fi'
+  
+3) commit 사용자를 바꾸는 방법
+  
+  git filter-branch -f --env-filter '
+  
+  OLD_EMAIL="test2@test.com"
+  
+  CORRECT_NAME="euneee2000"
+  
+  CORRECT_EMAIL="euneee2000@naver.com"
+  
+  if [ $GIT_COMMITER_EMAIL = $OLD_EMAIL ]
+  
+  then
+  
+    export GIT_COMMITER_NAME="$CORRECT_NAME"
+  
+    export GIT_COMMITER_EMAIL="$CORRECT_EMAIL"
+  
+  fi
+  
+  if [ $GIT_AUTHOR_EMAIL = $OLD_EMAIL ]
+  
+  then
+  
+    export GIT_AUTHOR_NAME ="$CORRECT_NAME"
+  
+    export GIT_AUTH0R_EMAIL ="$CORRECT_EMAIL"
+  
+  fi'
+  
 
